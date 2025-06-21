@@ -1,8 +1,9 @@
+
 import HomePage from '@/modules/landing/pages/HomePage.vue';
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory,createWebHistory } from 'vue-router';
 
 export const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -24,6 +25,12 @@ export const router = createRouter({
       name: 'contact',
       component: () => import('@/modules/landing/pages/ContactPage.vue'),
     },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: () => import('@/modules/auth/pages/LoginPage.vue'),
+    },
+    
   ],
 });
 export default router;
