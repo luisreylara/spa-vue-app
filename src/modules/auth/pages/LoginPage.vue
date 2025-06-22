@@ -4,7 +4,9 @@
     <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
     <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
     <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-    <button type="button"
+    <button 
+      @click="onLogin"
+      type="button"
       class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
       <span class="inline-block mr-2">Login</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -29,6 +31,15 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+  
+  const router = useRouter();
+  const onLogin= ()=>{
+    localStorage.setItem('userId', 'ABC-123');
+    const lastPath = localStorage.getItem('lastPath') ?? '/';
+    router.replace(lastPath);
+  }
 
 </script>
 
